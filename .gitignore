@@ -1,0 +1,34 @@
+database.properties
+
+# Logs
+*.log
+*.log.*
+*.log-*
+spring.log
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+target/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+logback.xml
+

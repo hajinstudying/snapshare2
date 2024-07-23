@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.snapshare.web.mapper.ReplyMapperInterface">
+
+	<!-- 댓글 조회 쿼리 메소드 -->
+	<select id="getReply" resultType="ReplyVo">
+		select reply_id, 
+			member_id, 
+			board_id,
+			reply_group,
+			reply_order,
+			reply_indent,
+			reply_content  <!-- reply_content 추가 -->
+		from reply
+		where reply_id = #{replyId}
+	</select>
+	
+	<!-- 댓글 목록 조회 쿼리 메소드 -->
+	<select id="listReply" resultType="ReplyVo">
+		select reply_id,
+			member_id,
+			board_id,
+			reply_group,
+			reply_order,
+			reply_indent,
+			reply_content  <!-- reply_content 추가 -->
+		from reply
+		order by reply_id desc					
+	</select>
+		
+	<!-- 댓글 등록 메소드 (selectKey 사용) -->
+	<insert id="createReplySelectKey" parameterType="ReplyVo">
+		<!-- selectKey를 사용하여 시퀀스 값 가져오기 -->
+		<selectKey keyProperty="replyId" resultType="int" order="BEFORE">
+			select seq_reply_id.nextval from dual
+		</selectKey>
+		insert into reply(
+			reply_id,
+			member_id, 
+			board_id,
+			reply_group,
+			reply_order,
+			reply_indent,
+			reply_content  <!-- reply_content 추가 -->
+		)
+		values (
+			#{replyId},
+			#{memberId}, 
+			#{boardId},
+			#{replyGroup},
+			#{replyOrder},
+			#{replyIndent},
+			#{replyContent}  <!-- replyContent 추가 -->
+		)
+	</insert>
+	
+	<!-- 댓글 수정 메소드 -->
+	<update id="updateReply" parameterType="ReplyVo">
+		update reply
+		set member_id = #{memberId},
+			board_id = #{boardId},
+			reply_group = #{replyGroup},
+			reply_order = #{replyOrder},
+			reply_indent = #{replyIndent},
+			reply_content = #{replyContent}  <!-- replyContent 추가 -->
+		where reply_id = #{replyId}
+	</update>
+
+	<!-- 댓글 삭제 메소드 -->
+	<delete id="deleteReply" parameterType="int">
+		delete from reply
+		where reply_id = #{replyId}
+	</delete>
+</mapper>

@@ -1,0 +1,425 @@
+@charset "UTF-8";
+
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 헤더 스타일 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    height: 70px;
+}
+
+/* 로고와 로그인 버튼을 동일한 크기로 설정 */
+.logo, .login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+/* 로고 스타일 */
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+/* 검색창 스타일 */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 900px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.search-box:hover {
+    background-color: #e0e0e0;
+}
+
+.search-box i {
+    margin-right: 10px;
+    color: #888;
+    /* z-index: 1; */
+}
+
+.search-box input {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: #333;
+    flex: 1;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+/* 로그인 버튼 스타일 */
+.login .create {
+	width: 70px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    /* padding: 10px 20px; */
+    padding: 0;
+    height: 50px;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+.login .home {
+	width: 60px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    /* padding: 10px 20px; */
+    padding: 0;
+    height: 50px;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login a:hover {
+    background-color: #e0e0e0;
+}
+
+
+.new-content {
+	width: 1200px;
+	margin: 20px auto;
+	border-radius: 15px;
+	/* columns: 4; */
+	column-gap: 20px;
+	padding: 0 100px; /* 왼쪽과 오른쪽에 간격을 만들기 위해 패딩 추가 */
+	box-shadow: 0px 0px 5px black;
+}
+
+.container {
+	width: 1400px;
+	margin: 0 auto;
+	columns: 4;
+	column-gap: 20px;
+	padding: 0 100px; /* 왼쪽과 오른쪽에 간격을 만들기 위해 패딩 추가 */
+}
+
+.more {
+	display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%;
+    padding: 0 100px;
+    margin-bottom: 16px;
+}
+
+.detailPost-container {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%;
+    padding: 0 100px;
+    margin-bottom: 30px;
+}
+
+.post-box {
+    margin-top: 20px;
+    border-radius: 30px;
+    width: 961px;
+    display: flex;
+    align-items: stretch; /* Align children to stretch to the same height */
+    justify-content: flex-start; /* Align children to the start (left) */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.aaa {
+	/* display:table; */
+	display: flex;
+	/* display: inline-block; */
+	width: 100%;
+}
+
+.img-box img {
+    border-radius: 30px 0 0 30px;
+    flex: 1;
+    height: auto;
+    width: 100%;
+}
+
+.info-box {
+	display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    width: 50%;
+}
+
+.post-box .img-box {
+    width: 50%;
+    height: auto;
+}
+
+.post-title, .reply, .reply-box {
+	width: 100%;
+	padding: 10px;
+}
+
+.post-menu a {
+	
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0;
+    text-decoration: none;
+}
+
+.post-menu a i {
+    color: black;
+    font-size: 20px;
+    
+}
+
+.post-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.reply {
+	margin-top: 40px;
+}
+
+.post-menu {
+	float: left;
+	width: 100%;
+	padding: 20px 10px 20px 0;	
+	flex: 1;
+	position: sticky;
+	top: 0px;
+	width: 100% 100%;
+	background-color: white;
+    display: flex;
+    justify-content: flex-start; /* Align the icons to the left */
+}
+
+.reply-container {
+    overflow: auto;
+    /* max-height: 100%; */ /* Set a max height for the scrollable area */
+    padding: 10px 10px 0 10px; /* Add padding to prevent content from sticking to the edges */
+    scrollbar-width:none;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.reply-insert {
+  flex: 1;
+  /* margin-top: auto; */
+  position: sticky;
+  bottom: 0px;
+  width: 100%;
+  height: auto;
+  padding: 0px 10px 10px 20px;
+  background-color: white;
+}
+
+.reply-box {
+	height: 10%;
+	align-items: center;
+}
+
+
+
+.reply-menu {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.reply-insert input {
+	text-align: center;
+	width: 300px;
+	height: 40px;
+	border-style: solid;
+ 	border-width: 2px;
+ 	border-color: #E9E9E9;
+	border-radius: 15px;
+}
+
+.reply-insert input:focus {
+    outline: none;
+}
+
+.input-box {
+	/* width: 100%;
+	text-align: center; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 0 0px;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.user-info {
+	width: 100%;
+	padding: 30px 10px 10px 10px;;
+}
+
+@media (max-width: 480px) {
+    .container, .new-content {
+        columns: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .container, .new-content {
+        columns: 2;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container, .new-content {
+        width: calc(100% - 40px);
+    }
+}
+
+.container .box {
+	position: relative;
+	width: 100%;
+	margin-bottom: 10px;
+	break-inside: avoid;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.container .box img {
+	position: relative;
+    transition: filter 0.3s;
+	max-width: 100%;
+	border-radius: 15px;
+	display: block;
+}
+
+
+.container .box .info {
+  margin-top: 7px;
+  left: 10px; /* 왼쪽 위치 조정할 수 있습니다 */
+  bottom: 10px; /* 아래 위치 조정할 수 있습니다 */
+  display: flex;
+  align-items: center;
+}
+
+.container .box .info img {
+  width: 30px; /* 이미지 크기 조정할 수 있습니다 */
+  height: 30px; /* 이미지 크기 조정할 수 있습니다 */
+  border-radius: 50%; /* 이미지를 둥글게 처리합니다 */
+  margin-right: 10px; /* 이미지와 텍스트 사이 간격 조정할 수 있습니다 */
+}
+
+.container .box .info p {
+  margin-top: 3px; /* 기본 마진 제거 */
+  color: #333; /* 텍스트 색상 지정할 수 있습니다 */
+}
+
+.container .box:hover img {
+    filter: brightness(65%);
+}
+
+/* .container .box:hover {
+    filter: brightness(65%);
+} */
+
+.container .box .bookmark-button {
+    position: absolute;
+    /* 이미지 오른쪽 하단에서 고정되도록 설정 */
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1; /* 버튼이 이미지 위에 나타나도록 설정 */
+}
+
+
+.container .box:hover .bookmark-button {
+    opacity: 1;
+}
+
+.box a {
+	color: white;
+	font-size: 20px;
+}
+
+.container .box .more-button {
+    position: absolute;
+    /* 이미지 오른쪽 하단에서 고정되도록 설정 */
+    bottom: 15px;
+    right: 15px;
+    /* background-color: gray; */
+    color: white;
+    padding: 5px 10px;
+    /* border-radius: 100%; */
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1; /* 버튼이 이미지 위에 나타나도록 설정 */
+}
+
+.container .box .share-button {
+    position: absolute;
+    /* 이미지 오른쪽 하단에서 고정되도록 설정 */
+    bottom: 15px;
+    right: 45px;
+    /* background-color: gray; */
+    padding: 5px 10px;
+    /* border-radius: 100%; */
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1; /* 버튼이 이미지 위에 나타나도록 설정 */
+}
+
+.container .box .download-button {
+    position: absolute;
+    /* 이미지 오른쪽 하단에서 고정되도록 설정 */
+    bottom: 15px;
+    right: 75px;
+    /* background-color: gray; */
+    padding: 5px 10px;
+    /* border-radius: 100%; */
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1; /* 버튼이 이미지 위에 나타나도록 설정 */
+}
+
+.container .box:hover .more-button {
+    opacity: 1;
+}
+
+.container .box:hover .share-button {
+    opacity: 1;
+}
+
+.container .box:hover .download-button {
+    opacity: 1;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.snapshare.web.mapper.MemberMapper">
+
+    <!-- 회원가입 -->
+    <insert id="createMember" parameterType="MemberVo">
+	    INSERT INTO member (member_id, password, name, email, role)
+	    VALUES (#{memberId, jdbcType=VARCHAR}, #{password, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR}, #{email, jdbcType=VARCHAR}, #{role, jdbcType=VARCHAR})
+	</insert>
+
+    <!-- 회원 정보 조회 -->
+    <select id="getMember" parameterType="string" resultType="com.snapshare.web.vo.MemberVo">
+    SELECT member_id, password, name, email
+    FROM member
+    WHERE member_id = #{memberId}
+	</select>
+
+</mapper>

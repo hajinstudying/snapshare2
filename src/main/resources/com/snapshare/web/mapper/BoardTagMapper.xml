@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 매퍼 XML -->
+<mapper namespace="com.snapshare.web.mapper.BoardTagMapperInterface">
+
+	<!-- 해당 게시물의 태그 조회 쿼리 -->
+	<select id="getTagsByBoardId"
+		resultType="String">
+		SELECT t.tag_name
+		FROM tag t
+		JOIN board_tag bt ON t.tag_id = bt.tag_id
+		WHERE bt.board_id = #{boardId}
+	</select>
+
+	<!-- 게시물에 태그 추가 쿼리 -->
+	<insert id="addTagToBoard" parameterType="boardTagVo">
+		INSERT INTO board_tag (board_id, tag_id)
+		VALUES (#{boardId}, #{tagId})
+	</insert>
+
+	<!-- 게시물에서 태그 전부 삭제 쿼리 -->
+	<delete id="deleteTagsFromBoard">
+		DELETE FROM board_tag
+		WHERE board_id = #{boardId}
+	</delete>
+</mapper>

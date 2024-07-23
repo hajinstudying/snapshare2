@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <!-- 매퍼 XML -->
+	<mapper namespace="com.snapshare.web.mapper.TagMapperInterface">
+		
+		<!-- 태그 개별 조회 쿼리 메소드 -->	
+		<select id="getTag" resultType="TagVo" parameterType="String">
+			SELECT tag_id,
+				tag_name
+			FROM tag
+			WHERE tag_name = #{tagName}
+		</select>
+		
+		<!-- 태그 목록 조회 쿼리 메소드 -->
+		<select id="listTag" resultType="TagVo">
+			SELECT tag_id,
+				tag_name
+			FROM tag
+			ORDER BY tag_name
+		</select>
+	
+		<!-- 태그 생성 메소드(selectKey 사용) -->
+		<insert id="createTagSelectKey" parameterType="TagVo">
+		    <selectKey keyProperty="tagId" resultType="int" order="BEFORE">
+		        SELECT seq_tag_id.nextval FROM dual
+		    </selectKey>
+		    INSERT INTO tag (
+		        tag_id,
+		        tag_name
+		    ) VALUES (
+		        #{tagId},
+		        #{tagName}
+		    )
+		</insert>
+		
+		<!-- 태그 삭제 쿼리 메소드 -->
+		<delete id="deleteTag" parameterType="int">
+			DELETE FROM tag
+			WHERE tag_id = #{tagId}
+		</delete>
+
+	</mapper>
