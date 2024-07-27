@@ -1,4 +1,3 @@
-database.properties
 
 # Logs
 *.log
@@ -29,6 +28,3 @@ target/
 # OS-specific files
 .DS_Store
 Thumbs.db
-
-logback.xml
-

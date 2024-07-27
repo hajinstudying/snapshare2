@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true" scanPeriod="30 seconds">
+
+	<!-- 이 부분에서 로그 저장소를 별도의 위치에 저장하도록 설정한다. -->
+    <property name="LOGS_PATH" value="/Library/javaworks/log" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}: --[%thread{10}] [%logger{20}] -- %msg%n </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        
+		 
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] [%logger{36}] - %msg%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS_PATH}/labatory_%d{yyyy-MM-dd HH}.%i.txt</fileNamePattern>
+            <maxFileSize>3KB</maxFileSize> 
+            <maxHistory>30</maxHistory>		
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    
+	<!-- 지역 로거 시작 -->
+    <logger name="org.springframework" level="info"/>   
+    
+	<!-- 애플리케이션의 로그 레벨 설정 -->
+    <logger name="com.snapshare.web.mybatis" level="info"/>
+
+    <!-- SQL 관련 설정 -->
+    <logger name="jdbc.sqltiming" level="DEBUG"/>	   
+    <logger name="jdbc.resultsettable" level="DEBUG"/> 
+    <logger name="jdbc.audit" level="OFF"/> 		   
+    <logger name="jdbc.resultset" level="OFF"/>		   
+	<!-- 지역 로거 끝 -->
+	
+	<!-- 루트(전역) 로거, 최상위 레벨 설정 -->
+    <root level="info"> 
+        <appender-ref ref="CONSOLE"/> 
+        <appender-ref ref="FILE"/> 	  
+    </root>
+</configuration>
