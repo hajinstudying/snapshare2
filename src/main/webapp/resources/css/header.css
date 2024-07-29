@@ -22,110 +22,112 @@
     height: 70px;
 }
 
-	/* 로고 스타일 */
-	.header .logo a {
-	    font-size: 24px;
-	    font-weight: bold;
-	    color: #333;
-	    text-decoration: none;
-	}
-	
-	/* 검색창 스타일 */
-	.header .search-box {
-	    display: flex;
-	    align-items: center;
-	    background-color: #f0f0f0;
-	    border-radius: 25px;
-	    padding: 10px 20px;
-	    width: 900px;
-	    height: 50px;
-	    transition: background-color 0.3s ease;
-	}
-	
-	.header .search-box:hover {
-	    background-color: #e0e0e0;
-	}
-	
-	.header .search-box.active .input {
-		color: #ffffff;
-	}
-	
-	.header .search-box i {
-	    margin-right: 10px;
-	    color: #888;
-	}
-	
-	.header .search-box input {
-	    background-color: transparent;
-	    border: none;
-	    font-size: 18px;
-	    color: #333;
-	    flex: 1;
-	}
-	
-	/* 포커스 상태 */
-	.header .search-box:focus-within {
-	    background-color: #0D0D0D;
-	}
-	
-	.header .search-box:focus-within input {
-	    color: #ffffff;
-	}
-	
-	.header .login {
-	display: flex;
-	flex-direction: row;
-	}
-	
-	/* 로그인 버튼 스타일 */
-	.header .headerBtn {
-    font-size: 16px;
+/* 로고 스타일 */
+.header .logo a {
+    font-size: 24px;
+    font-weight: bold;
     color: #333;
     text-decoration: none;
-    padding: 10px 15px; /* 패딩을 조금 줄임 */
-    height: 50px;
+    margin-left: 10px;
+}
+
+/* 검색창 스타일 */
+.header .search-box {
+    display: flex;
+    align-items: center;
     background-color: #f0f0f0;
     border-radius: 25px;
+    padding: 10px 20px;
+    width: 900px;
+    height: 50px;
     transition: background-color 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px; /* 간격을 조금 줄임 */
-    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
-    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
-    text-overflow: ellipsis; /* 말줄임표 추가 */
-    min-width: 80px; /* 최소 너비 설정 */
-    max-width: 150px; /* 최대 너비 설정 */
+    margin-left: 10px;
+}
+
+.header .search-box:hover {
+    background-color: #e0e0e0;
+}
+
+.header .search-box.active .input {
+	color: #ffffff;
+}
+
+.header .search-box i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.header .search-box input {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: #333;
+    flex: 1;
+    outline: none;
+}
+
+/* 포커스 상태 */
+.header .search-box:focus-within {
+    background-color: #0D0D0D;
+}
+
+.header .search-box:focus-within input {
+    color: #ffffff;
+}
+
+/* 버튼 그룹 */
+.header .btns {
+display: flex;
+flex-direction: row;
+}
+.header .btns a:hover {
+    background-color: #e0e0e0;
+}
+
+/* 버튼 스타일 */
+.header .headerBtn {
+   font-size: 20px;
+   color: #333;
+   text-decoration: none;
+   padding: 10px 15px; /* 패딩을 조금 줄임 */
+   height: 50px;
+   background-color: #f0f0f0;
+   border-radius: 25px;
+   transition: background-color 0.3s ease;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 10px; /* 간격을 조금 줄임 */
+   white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+   overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+   text-overflow: ellipsis; /* 말줄임표 추가 */
+   min-width: 80px; /* 최소 너비 설정 */
+   max-width: 150px; /* 최대 너비 설정 */
+}
+
+.header .container {
+	width: 1400px;
+	margin: 0 auto;
+	columns: 4;
+	column-gap: 20px;
+	padding: 0 100px; /* 왼쪽과 오른쪽에 간격을 만들기 위해 패딩 추가 */
+}
+
+.header .more {
+	display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%;
+    padding: 0 100px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+   .header .headerBtn {
+       font-size: 14px;
+       padding: 8px 12px;
+       min-width: 60px;
+       max-width: 120px;
+   }
 }
 	
-	.header .login a:hover {
-	    background-color: #e0e0e0;
-	}
-	
-	.header .container {
-		width: 1400px;
-		margin: 0 auto;
-		columns: 4;
-		column-gap: 20px;
-		padding: 0 100px; /* 왼쪽과 오른쪽에 간격을 만들기 위해 패딩 추가 */
-	}
-	
-	.header .more {
-		display: flex;
-	    justify-content: center; /* 가로 중앙 정렬 */
-	    align-items: center; /* 세로 중앙 정렬 */
-	    width: 100%;
-	    padding: 0 100px;
-	    margin-bottom: 16px;
-	}
-	
-	@media (max-width: 768px) {
-    .header .headerBtn {
-        font-size: 14px;
-        padding: 8px 12px;
-        min-width: 60px;
-        max-width: 120px;
-    }
-}
-	
-}

@@ -256,7 +256,6 @@
                 </div>
             </div>
             <div class="reply-insert">
-                <div class="ccc" style="height: 60px;"><h3>어떠셨나요?</h3></div>
                 <div class="reply-insert-box">
                     <div class="input-box">
                         <input id="replyInput" type="text" placeholder="댓글을 입력하세요...">

@@ -8,6 +8,7 @@
 <head>
     <title>ShapShare</title>
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/board.css' />?v=${now}" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/sidebar.css' />?v=${now}" />
     <script src="https://kit.fontawesome.com/6e1082867c.js" crossorigin="anonymous"></script> <!-- 아이콘 -->
     <script src="<c:url value='/resources/js/bookmarkCreate.js' />"></script>
 
@@ -18,7 +19,7 @@
 </head>
 <body>
     <jsp:include page="/resources/common/header.jsp" />
-    
+    <jsp:include page="/resources/common/sidebar.jsp" />
     <!-- Container for the detailed post -->
     <div id="detailPost" style="display:none;"></div>
 
@@ -42,7 +43,18 @@
     </div>
 
     <script>  
-$(document).ready(function() {  
+$(document).ready(function() {
+	// 사이드바 토글
+	var sidebarToggle = document.getElementById('sidebarToggle');
+    var sidebar = document.querySelector('.sidebar');
+    var container = document.querySelector('.container');
+
+    sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+        container.classList.toggle('sidebar-active');
+    });
+	
+	// 상세페이지 토글
     $('.clickImage').on('click', function() {  
         var boardId = $(this).data('board-id');  
 
@@ -63,5 +75,6 @@ $(document).ready(function() {
     });  
 });  
 </script>
+<script src="/resources/js/sidebar.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@
 </head>
 <body>
 <jsp:include page="/resources/common/header.jsp" />
-<div class="container createContainer">
+<div class="container create-container">
     <div class="row">
         <!-- Image Preview Section -->
         <div class="col-md-6">
